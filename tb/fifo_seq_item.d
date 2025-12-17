@@ -1,7 +1,7 @@
 import esdl;
 import uvm;
 
-class fifo_seq_item: uvm_sequence_item
+class fifo_seq_item(int DATA_WIDTH = 8): uvm_sequence_item
 {
 	mixin uvm_object_utils;
 
