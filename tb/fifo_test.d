@@ -1,7 +1,30 @@
 import esdl;
 import uvm;
 import fifo_intf: fifo_intf;
+import fifo_sequence: fifo_sequence;
+import fifo_env: fifo_env;
 
+
+class directed_test: uvm_test
+{
+	mixin uvm_component_utils;
+
+	@UVM_BUILD fifo_env env;
+
+	this(string name, uvm_component parent) {
+	super(name, parent);
+	}
+
+	override void run_phase(uvm_phase phase) {
+	phase.get_objection().set_drain_time(this, 100.nsec);
+	phase.raise_objection(this);
+	
+}
+
+
+
+
+}
 class Top: Entity
 {
     import Vaxis_fifo_euvm;
